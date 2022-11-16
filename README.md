@@ -10,7 +10,7 @@ _**Note**: This action is supported on all runners operating systems (`ubuntu`, 
 
 ### Requirements
 
-To get the account keys (`CLIENT_ID`, `CLIENT_KEY` and `REALM`), please login using a **ADMIN** user on the StackSpot Portal, and generate new keys at [https://stackspot.com/en/settings/access-token](https://stackspot.com/en/settings/access-token).
+To get the account keys (`CLIENT_ID`, `CLIENT_KEY` and `REALM`), please login using a **ADMIN** user on the [StackSpot Portal](https://stackspot.com), and generate new keys at [https://stackspot.com/en/settings/access-token](https://stackspot.com/en/settings/access-token).
 
 ### Use Case
 
