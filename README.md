@@ -1,4 +1,4 @@
-# st-cli-action
+# stk-cli-action
 
 [![Action test Ubuntu](https://github.com/stack-spot/stk-cli-action/actions/workflows/action-test-ubuntu.yml/badge.svg)](https://github.com/stack-spot/stk-cli-action/actions/workflows/action-test-ubuntu.yml) [![Action test MacOS](https://github.com/stack-spot/stk-cli-action/actions/workflows/action-test-macos.yml/badge.svg)](https://github.com/stack-spot/stk-cli-action/actions/workflows/action-test-macos.yml) [![Action test Windows](https://github.com/stack-spot/stk-cli-action/actions/workflows/action-test-windows.yml/badge.svg)](https://github.com/stack-spot/stk-cli-action/actions/workflows/action-test-windows.yml)
 
