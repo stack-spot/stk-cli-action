@@ -1,0 +1,73 @@
+# Created by https://www.gitignore.io
+
+### Go ###
+# Binaries for programs and plugins
+*.dll
+*.so
+*.dylib
+
+# ## VScode
+.DS_Store
+
+/bin/
+/dist/*
+/test/tests.*
+/test/coverage.*
+/go.sum
+.scannerwork
+.coverage.*
+**/.coverage
+**/.template
+.template/**
+/.github/scripts/mac-pkg/Application
+/.github/scripts/mac-pkg/target
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+### Go Patch ###
+#/vendor/
+/Godeps/
+
+### Vim ###
+# Swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Setup files
+__pycache__/
+env/
+!env/env.py
+logs/
+dist/
+build/
+os.spec
+stk.spec
+os.egg-info/
+os.egg-info/**
+**.pyc
+**.pyo
+.pytest_cache
+.vscode
+
+### PyCharm ###
+# JetBrains
+.idea/test_other_logic
+.idea/*
+
+## Cov
+*/cov_html
+
+## Custom
+**/metrics.log
+**/.coverage.*
+**/cov.xml
+*/cover

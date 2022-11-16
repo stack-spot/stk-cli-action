@@ -1,0 +1,34 @@
+name: Action test Windows
+
+on:
+  push:
+    paths:
+      - '.github/workflows/action-test-windows.yml'
+      - 'action.yml'
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  windows:
+    strategy:
+      matrix:
+        os: [windows-2019, windows-2022]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Run STK CLI installation
+        uses: stack-spot/stk-cli-action@main
+        with:
+          client_id: ${{ secrets.CLIENT_ID }}
+          client_key: ${{ secrets.CLIENT_KEY }}
+          realm: ${{ secrets.REALM }}
+
+      - run: stk --version
+        shell: bash
+      
+      - run: stk list stack
+        shell: bash

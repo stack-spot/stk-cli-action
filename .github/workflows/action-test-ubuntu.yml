@@ -1,0 +1,35 @@
+name: Action test Ubuntu
+
+on:
+  push:
+    paths:
+      - '.github/workflows/action-test-ubuntu.yml'
+      - 'action.yml'
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ubuntu:
+    strategy:
+      matrix:
+        os: [ubuntu-20.04, ubuntu-22.04]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Run STK CLI installation
+        uses: Gstack-spot/stk-cli-action@main
+        with:
+          client_id: ${{ secrets.CLIENT_ID }}
+          client_key: ${{ secrets.CLIENT_KEY }}
+          realm: ${{ secrets.REALM }}
+
+      - run: stk --version
+      
+      - run: stk list stack
+
+      # - name: Setup upterm session
+      #   uses: lhotari/action-upterm@v1
