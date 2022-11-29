@@ -1,0 +1,17 @@
+name: SAST - Static application security testing
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  push: # Until added to release pipeline
+
+jobs:
+  appsec-workflow:
+    uses: ZupIT/appsec-workflow/.github/workflows/appsec-workflow.yml@v1.3
+    with:
+      debug: false
+      repository: ${{github.event.repository.name}}
+      organization: ${{github.repository_owner}}
+      environment: main
+    secrets:
+      report-secret: ${{ secrets.VULN_MNG_REPORT_KEY }}
