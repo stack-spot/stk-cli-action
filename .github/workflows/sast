@@ -1,9 +1,8 @@
 name: SAST - Static application security testing
 
 on:
-  workflow_call:
   workflow_dispatch:
-  push: # Until added to release pipeline
+  push:
 
 jobs:
   appsec-workflow:
