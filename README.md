@@ -16,7 +16,7 @@ To get the account keys (`CLIENT_ID`, `CLIENT_KEY` and `REALM`), please login us
 
 ```yaml
     steps:
-      - uses: stack-spot/stk-cli-action@v1
+      - uses: stack-spot/stk-cli-action@v1.1
         with:
           client_id: ${{ secrets.CLIENT_ID }}
           client_key: ${{ secrets.CLIENT_KEY }}
