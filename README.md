@@ -28,3 +28,4 @@ To get the account keys (`CLIENT_ID`, `CLIENT_KEY` and `REALM`), please login us
 ## License
 
 [Apache License 2.0](https://github.com/stack-spot/stk-cli-action/blob/main/LICENSE)
+
