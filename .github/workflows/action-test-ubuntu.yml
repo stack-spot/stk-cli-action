@@ -25,9 +25,9 @@ jobs:
           client_key: ${{ secrets.CLIENT_KEY }}
           realm: ${{ secrets.REALM }}
 
-      - run: stk --version
-      
-      - run: stk list stack
+      - run: stk-alpha --version
+
+      - run: stk-alpha list workspace
 
       # - name: Setup upterm session
       #   uses: lhotari/action-upterm@v1
