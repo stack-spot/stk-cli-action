@@ -39,8 +39,6 @@ runs:
           curl https://stk.stackspot.com/installer/windows/stk-alpha.exe --output stk-alpha.exe
           ./stk-alpha.exe upgrade
           mv stk-alpha.exe /bin
-          mv /bin/stk-alpha.exe /bin/stk.exe
-          mv /bin/stk-cli/stk-alpha.exe /bin/stk-cli/stk.exe
         fi
       shell: bash
 
