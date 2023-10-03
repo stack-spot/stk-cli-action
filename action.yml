@@ -26,7 +26,9 @@ runs:
           curl -fsSL https://stk.stackspot.com/install-alpha.sh | bash
           sudo mv /home/runner/.stk-alpha/bin/* /usr/local/bin
           mv /usr/local/bin/stk-alpha /usr/local/bin/stk
+          ls /usr/local/bin/
           mv /usr/local/bin/stk-cli/stk-alpha /usr/local/bin/stk-cli/stk
+          ls /usr/local/bin/stk-cli
         elif [[ "$(uname)" = "Darwin" ]]; then
           curl -fsSL https://stk.stackspot.com/install-alpha.sh | bash
           sudo mv /Users/runner/.stk-alpha/bin/* /usr/local/bin
