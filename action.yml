@@ -27,6 +27,8 @@ runs:
           sudo mv /home/runner/.stk-alpha/bin/* /usr/local/bin
           alias stk=stk-alpha
           echo "####################################"
+          stk-alpha --version
+          echo "####################################"
           stk --version
           echo "####################################"
         elif [[ "$(uname)" = "Darwin" ]]; then
