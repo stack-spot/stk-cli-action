@@ -26,10 +26,12 @@ runs:
           curl -fsSL https://stk.stackspot.com/install-alpha.sh | bash
           sudo mv /home/runner/.stk-alpha/bin/* /usr/local/bin
           mv /usr/local/bin/stk-alpha /usr/local/bin/stk
+          mv /usr/local/bin/stk-cli/stk-alpha /usr/local/bin/stk-cli/stk
         elif [[ "$(uname)" = "Darwin" ]]; then
           curl -fsSL https://stk.stackspot.com/install-alpha.sh | bash
           sudo mv /Users/runner/.stk-alpha/bin/* /usr/local/bin
           mv /usr/local/bin/stk-alpha /usr/local/bin/stk
+          mv /usr/local/bin/stk-cli/stk-alpha /usr/local/bin/stk-cli/stk
         else
           git clone https://github.com/Microsoft/vcpkg.git
           cd vcpkg
@@ -41,6 +43,7 @@ runs:
           ./stk-alpha.exe upgrade
           mv stk-alpha.exe /bin
           mv /bin/stk-alpha.exe /bin/stk.exe
+          mv /bin/stk-cli/stk-alpha.exe /bin/stk-cli/stk.exe
         fi
       shell: bash
 
