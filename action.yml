@@ -27,7 +27,7 @@ runs:
           sudo mv /home/runner/.stk-alpha/bin/* /usr/local/bin
           alias stk=stk-alpha
           echo "####################################"
-          alias stk --version
+          stk --version
           echo "####################################"
         elif [[ "$(uname)" = "Darwin" ]]; then
           curl -fsSL https://stk.stackspot.com/install-alpha.sh | bash
