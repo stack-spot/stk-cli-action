@@ -25,13 +25,10 @@ runs:
         if [[ "$(uname)" = "Linux" ]]; then
           curl -fsSL https://stk.stackspot.com/install-alpha.sh | bash
           sudo mv /home/runner/.stk-alpha/bin/* /usr/local/bin
-          cp /usr/local/bin/stk-alpha /usr/local/bin/stk
-          ls /usr/local/bin/
-          cp /usr/local/bin/stk-cli/stk-alpha /usr/local/bin/stk-cli/stk
-          ls /usr/local/bin/stk-cli
-          echo ####################################
-          stk --version
-          echo ####################################
+          alias stk=stk-alpha
+          echo "####################################"
+          alias stk --version
+          echo "####################################"
         elif [[ "$(uname)" = "Darwin" ]]; then
           curl -fsSL https://stk.stackspot.com/install-alpha.sh | bash
           sudo mv /Users/runner/.stk-alpha/bin/* /usr/local/bin
