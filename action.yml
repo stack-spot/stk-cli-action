@@ -25,17 +25,10 @@ runs:
         if [[ "$(uname)" = "Linux" ]]; then
           curl -fsSL https://stk.stackspot.com/install-alpha.sh | bash
           sudo mv /home/runner/.stk-alpha/bin/* /usr/local/bin
-          alias stk=stk-alpha
-          echo "####################################"
-          stk-alpha --version
-          echo "####################################"
-          stk --version
-          echo "####################################"
         elif [[ "$(uname)" = "Darwin" ]]; then
           curl -fsSL https://stk.stackspot.com/install-alpha.sh | bash
           sudo mv /Users/runner/.stk-alpha/bin/* /usr/local/bin
           mv /usr/local/bin/stk-alpha /usr/local/bin/stk
-          mv /usr/local/bin/stk-cli/stk-alpha /usr/local/bin/stk-cli/stk
         else
           git clone https://github.com/Microsoft/vcpkg.git
           cd vcpkg
@@ -52,7 +45,7 @@ runs:
       shell: bash
 
     - name: Login to StackSpot Account
-      run: stk login --client-id=${{ inputs.client_id }} --client-key=${{ inputs.client_key }} --realm=${{ inputs.realm }}  
+      run: stk-alpha login --client-id=${{ inputs.client_id }} --client-key=${{ inputs.client_key }} --realm=${{ inputs.realm }}
       shell: bash
 
 branding:
