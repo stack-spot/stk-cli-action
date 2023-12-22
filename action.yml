@@ -20,13 +20,13 @@ runs:
       run: echo 🤖 OS runner is $(uname)
       shell: bash
 
-    - name: Install STK CLI for STG
+    - name: Install STK CLI - STG
       run: |
         if [[ "$(uname)" = "Linux" ]]; then
-          curl -fsSL https://stk.stackspot.com/install-stg.sh | bash
+          curl -fsSL https://stk-cli.stg.stackspot.com/install-stg.sh | bash
           sudo mv /home/runner/.stk-stg/bin/* /usr/local/bin
         elif [[ "$(uname)" = "Darwin" ]]; then
-          curl -fsSL https://stk.stackspot.com/install-stg.sh | bash
+          curl -fsSL https://stk-cli.stg.stackspot.com/install-stg.sh | bash
           sudo mv /Users/runner/.stk-stg/bin/* /usr/local/bin
           mv /usr/local/bin/stk-stg /usr/local/bin/stk
         else
@@ -36,11 +36,14 @@ runs:
           ./vcpkg integrate install
           vcpkg install curl[tool]
           cd $GITHUB_WORKSPACE
-          curl https://stk.stackspot.com/installer/windows/stk-stg.exe --output stk-stg.exe
+          curl https://stk-cli.stg.stackspot.com/installer/windows/stk-stg.exe --output stk-stg.exe
           ./stk-stg.exe upgrade
           mv stk-stg.exe /bin
         fi
       shell: bash
+    
+    - name: Show STK CLI  version
+      run: stk-stg --version
 
     - name: Login to StackSpot Account
       run: stk-stg login --client-id=${{ inputs.client_id }} --client-key=${{ inputs.client_key }} --realm=${{ inputs.realm }}
