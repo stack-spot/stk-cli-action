@@ -44,6 +44,7 @@ runs:
     
     - name: Show STK CLI  version
       run: stk-stg --version
+      shell: bash
 
     - name: Login to StackSpot Account
       run: stk-stg login --client-id=${{ inputs.client_id }} --client-key=${{ inputs.client_key }} --realm=${{ inputs.realm }}
