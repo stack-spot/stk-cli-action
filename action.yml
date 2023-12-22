@@ -20,15 +20,15 @@ runs:
       run: echo 🤖 OS runner is $(uname)
       shell: bash
 
-    - name: Install STK CLI - ALPHA for PRD
+    - name: Install STK CLI for STG
       run: |
         if [[ "$(uname)" = "Linux" ]]; then
-          curl -fsSL https://stk.stackspot.com/install-alpha.sh | bash
-          sudo mv /home/runner/.stk-alpha/bin/* /usr/local/bin
+          curl -fsSL https://stk.stackspot.com/install-stg.sh | bash
+          sudo mv /home/runner/.stk-stg/bin/* /usr/local/bin
         elif [[ "$(uname)" = "Darwin" ]]; then
-          curl -fsSL https://stk.stackspot.com/install-alpha.sh | bash
-          sudo mv /Users/runner/.stk-alpha/bin/* /usr/local/bin
-          mv /usr/local/bin/stk-alpha /usr/local/bin/stk
+          curl -fsSL https://stk.stackspot.com/install-stg.sh | bash
+          sudo mv /Users/runner/.stk-stg/bin/* /usr/local/bin
+          mv /usr/local/bin/stk-stg /usr/local/bin/stk
         else
           git clone https://github.com/Microsoft/vcpkg.git
           cd vcpkg
@@ -36,14 +36,14 @@ runs:
           ./vcpkg integrate install
           vcpkg install curl[tool]
           cd $GITHUB_WORKSPACE
-          curl https://stk.stackspot.com/installer/windows/stk-alpha.exe --output stk-alpha.exe
-          ./stk-alpha.exe upgrade
-          mv stk-alpha.exe /bin
+          curl https://stk.stackspot.com/installer/windows/stk-stg.exe --output stk-stg.exe
+          ./stk-stg.exe upgrade
+          mv stk-stg.exe /bin
         fi
       shell: bash
 
     - name: Login to StackSpot Account
-      run: stk-alpha login --client-id=${{ inputs.client_id }} --client-key=${{ inputs.client_key }} --realm=${{ inputs.realm }}
+      run: stk-stg login --client-id=${{ inputs.client_id }} --client-key=${{ inputs.client_key }} --realm=${{ inputs.realm }}
       shell: bash
 
 branding:
