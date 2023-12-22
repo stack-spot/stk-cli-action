@@ -25,8 +25,8 @@ jobs:
           client_key: ${{ secrets.CLIENT_KEY }}
           realm: ${{ secrets.REALM }}
 
-      - run: stk-alpha --version
+      - run: stk-stg --version
         shell: bash
 
-      - run: stk-alpha list workspace
+      - run: stk-stg list workspace
         shell: bash
