@@ -23,6 +23,7 @@ runs:
     - name: Install STK CLI - STG
       run: |
         if [[ "$(uname)" = "Linux" ]]; then
+          sudo apt update && sudo apt install -y curl unzip git
           curl -fsSL https://stk-cli.stg.stackspot.com/install-stg.sh | bash
           sudo mv /home/runner/.stk-stg/bin/* /usr/local/bin
         elif [[ "$(uname)" = "Darwin" ]]; then
