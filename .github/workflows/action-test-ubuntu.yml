@@ -19,15 +19,15 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Run STK CLI installation
-        uses: stack-spot/stk-cli-action@main
+        uses: stack-spot/stk-cli-action@dev
         with:
           client_id: ${{ secrets.CLIENT_ID }}
           client_key: ${{ secrets.CLIENT_KEY }}
           realm: ${{ secrets.REALM }}
 
-      - run: stk --version
-      
-      - run: stk list stack
+      - run: stk-dev --version
+
+      - run: stk-dev list workspace
 
       # - name: Setup upterm session
       #   uses: lhotari/action-upterm@v1
