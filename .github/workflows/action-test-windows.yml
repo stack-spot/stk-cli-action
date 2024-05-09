@@ -19,14 +19,14 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Run STK CLI installation
-        uses: stack-spot/stk-cli-action@stg
+        uses: stack-spot/stk-cli-action@dev
         with:
           client_id: ${{ secrets.CLIENT_ID }}
           client_key: ${{ secrets.CLIENT_KEY }}
           realm: ${{ secrets.REALM }}
 
-      - run: stk-stg --version
+      - run: stk-dev --version
         shell: bash
 
-      - run: stk-stg list workspace
+      - run: stk-dev list workspace
         shell: bash
