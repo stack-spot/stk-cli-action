@@ -18,9 +18,8 @@ jobs:
         os: [ubuntu-20.04, ubuntu-22.04, ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
       - name: Run STK CLI installation
-        uses: stack-spot/stk-cli-action@fix/installation
+        uses: stack-spot/stk-cli-action@main
         with:
           client_id: ${{ secrets.CLIENT_ID }}
           client_key: ${{ secrets.CLIENT_KEY }}
