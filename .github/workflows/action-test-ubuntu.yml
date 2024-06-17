@@ -18,6 +18,7 @@ jobs:
         os: [ubuntu-20.04, ubuntu-22.04, ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
+      - uses: actions/checkout@v4
       - name: Run STK CLI installation
         uses: ./
         with:

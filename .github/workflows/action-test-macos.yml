@@ -15,9 +15,10 @@ jobs:
   macos:
     strategy:
       matrix:
-        os: [macos-11, macos-12, macos-latest]
+        os: [macos-12, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
+      - uses: actions/checkout@v4
       - name: Run STK CLI installation
         uses: ./
         with:
