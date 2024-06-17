@@ -27,7 +27,5 @@ jobs:
 
       - run: stk --version
       
-      - run: stk list stack
-
       # - name: Setup upterm session
       #   uses: lhotari/action-upterm@v1
