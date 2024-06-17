@@ -20,16 +20,32 @@ runs:
       run: echo 🤖 OS runner is $(uname)
       shell: bash
 
-    - name: Install jq, curl, zip, and git
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y jq curl zip git
 
     - name: Install STK CLI
       run: |
-        cd /tmp
-        curl -fsSL https://stk.stackspot.com/install.sh | bash
-        echo "~/.stk/bin" >> $GITHUB_PATH
+        if [[ "$(uname)" = "Linux" ]]; then
+          # Install jq, curl, zip, and git
+          sudo apt-get update
+          sudo apt-get install -y jq curl zip git
+          cd /tmp
+          curl -fsSL https://stk.stackspot.com/install.sh | bash
+          echo "~/.stk/bin" >> $GITHUB_PATH
+        elif [[ "$(uname)" = "Darwin" ]]; then
+          cd /tmp
+          curl -fsSL https://stk.stackspot.com/install.sh | bash
+          sudo mv /Users/runner/.stk/bin/* /usr/local/bin
+          echo "~/.stk/bin" >> $GITHUB_PATH
+        else
+          git clone https://github.com/Microsoft/vcpkg.git
+          cd vcpkg
+          ./bootstrap-vcpkg.sh
+          ./vcpkg integrate install
+          vcpkg install curl[tool]
+          cd $GITHUB_WORKSPACE
+          curl https://stk.stackspot.com/installer/windows/stk.exe --output stk.exe
+          ./stk.exe upgrade
+          mv stk.exe /bin 
+        fi
       shell: bash
 
     - name: Login to StackSpot Account
