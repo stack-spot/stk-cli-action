@@ -23,11 +23,17 @@ runs:
     - name: Install STK CLI
       run: |
         if [[ "$(uname)" = "Linux" ]]; then
+          # Install jq, curl, zip, and git
+          sudo apt-get update
+          sudo apt-get install -y jq curl zip git
+          cd /tmp
           curl -fsSL https://stk.stackspot.com/install.sh | bash
-          sudo mv /home/runner/.stk/bin/* /usr/local/bin
+          echo "~/.stk/bin" >> $GITHUB_PATH
         elif [[ "$(uname)" = "Darwin" ]]; then
+          cd /tmp
           curl -fsSL https://stk.stackspot.com/install.sh | bash
           sudo mv /Users/runner/.stk/bin/* /usr/local/bin
+          echo "~/.stk/bin" >> $GITHUB_PATH
         else
           git clone https://github.com/Microsoft/vcpkg.git
           cd vcpkg
@@ -44,6 +50,10 @@ runs:
     - name: Login to StackSpot Account
       run: stk login --client-id=${{ inputs.client_id }} --client-key=${{ inputs.client_key }} --realm=${{ inputs.realm }}  
       shell: bash
+
+    - name: Show STK CLI version
+      run: stk --version
+      shell: bash   
 
 branding:
     icon: 'terminal'

@@ -15,7 +15,7 @@ jobs:
   macos:
     strategy:
       matrix:
-        os: [macos-11, macos-12, macos-latest]
+        os: [macos-12, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Run STK CLI installation
@@ -27,7 +27,5 @@ jobs:
 
       - run: stk --version
       
-      - run: stk list stack
-
       # - name: Setup upterm session
       #   uses: lhotari/action-upterm@v1

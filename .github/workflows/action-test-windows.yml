@@ -28,5 +28,3 @@ jobs:
       - run: stk --version
         shell: bash
       
-      - run: stk list stack
-        shell: bash
